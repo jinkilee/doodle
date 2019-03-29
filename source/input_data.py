@@ -191,22 +191,7 @@ def draw_cv2_raw(raw_strokes, size=256, lw=6, time_color=True, lastdrop_r = 0.0)
 			c2 = min(int((np.sqrt((sx-dx)*(sx-dx) + (sy-dy)*(sy-dy)) / time)*255.0), 255)
 			_ = cv2.line(img, (sx, sy), (dx, dy), (c0,c1,c2), lw)
 
-			'''
-			if i==0:
-				color_inter = int((float(et-pre_st_t)/limit_ett)*245)+10
-				_ = cv2.circle(img, (sx, sy), lw, (0,0,color_inter), -1) ##interval time
-
-			if i==len(stroke[0])-2 and t == len(raw_strokes) -1:
-				color_end = int((float(ett)/(limit_ett)*245))+10
-				_ = cv2.circle(img, (sx, sy), lw, (0,color_end,0), -1) ##end time
-
-			inertia_x = 2*dx -sx
-			inertia_y = 2*dy-sy
-			pre_st_t=et
-			'''
-
 	return cv2.resize(img, (size, size))
-##############################################################
 
 def image_generator_xd_raw(size, batchsize, ks, lw=6, time_color=True):
 	while True:
